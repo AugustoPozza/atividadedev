@@ -11,10 +11,15 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Atualizando para v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # Usando a versão mais recente
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v3  # Certifique-se de que esta ação está atualizada
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
